@@ -11,6 +11,9 @@ env
 # Unittest reports
 .coverage*
 
+# mypy
+.mypy_cache
+
 # Logs
 *.log
 
