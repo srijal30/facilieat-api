@@ -38,6 +38,9 @@ A list of endpoints with their expected request/response format.
 - If an endpoint requires authentication, include `token` in the request.
 
 ## User Account Endpoints
+
+---
+
 `user/create` <br>
 To create a new user
 
@@ -58,6 +61,8 @@ To create a new user
 ```
 ```
 
+---
+
 `user/login` <br>
 Logs a user in
 
@@ -75,6 +80,8 @@ Logs a user in
     "token": String
 }
 ```
+
+---
 
 `user/update` <br>
 Authentication required.
