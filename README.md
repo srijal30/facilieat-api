@@ -16,7 +16,7 @@ $ source .venv/bin/activate  # change bin to Scripts for Windows
 ```
 - Start the server
 ```
-$ python src/main.py
+$ python main.py
 ```
 
 # Protocol
