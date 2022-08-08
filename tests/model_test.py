@@ -4,7 +4,6 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-
 class Item (BaseModel):
     name: str
     id: int
@@ -15,8 +14,6 @@ class Item (BaseModel):
 
 
 example_item = Item(name="botox", id=0)
-
 example_item.change_name("detox")
-
 print( example_item.name )
 
