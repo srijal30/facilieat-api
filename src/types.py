@@ -22,7 +22,7 @@ class User(BaseModel):
     phone: str  # do we need this?
     firstName: str
     lastName: str
-    status: bool  # what is this for?
+    status: bool  # what is this for? -- Whether user is logged in
     sendNotifications: bool
     # wallet: Wallet
     # orders: List[Order]
