@@ -26,9 +26,9 @@ A list of endpoints with their expected request/response format.
 - All requests will have the following base format:
 ```json
 {
-    'success': boolean,
-    'message': String, 
-    'data': Map
+    "success": boolean,
+    "message": String, 
+    "data": Map
 }
 ```
 - If an error occurs while processing the response, `success` will be `false`. The error message will be in `message`.
@@ -44,13 +44,13 @@ To create a new user
 **Request**
 ```json
 {
-    'email': String,
-    'phone': String,
-    'password': String,
-    'firstName': String,
-    'lastName': String,
+    "email": String,
+    "phone": String,
+    "password": String,
+    "firstName": String,
+    "lastName": String,
     //Optional Keys
-    'sendNotifications': boolean // default: true
+    "sendNotifications": boolean // default: true
 }
 ```
 
@@ -64,15 +64,15 @@ Logs a user in
 **Request:**
 ```json
 {
-    'email': String,
-    'password': String
+    "email": String,
+    "password": String
 }
 ```
 
 **Response:**
 ```json
 {
-    'token': String
+    "token": String
 }
 ```
 
@@ -83,7 +83,7 @@ Update user data.
 **Request:**
 ```json
 {
-    'token': String,
+    "token": String,
     //Include the keys you want to change
 }
 ```
