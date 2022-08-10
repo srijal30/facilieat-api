@@ -1,0 +1,24 @@
+datasource db {
+    provider = "sqlite"
+    url = "file:data.sqlite"
+}
+
+generator db {
+    provider = "prisma-client-py"
+    interface = "asyncio"
+}
+
+model User {
+    email String @unique
+    phone String // should this be unique too?
+    firstName String
+    lastName String
+    status Boolean
+    sendNotifications Boolean
+    
+    // userId String @unique
+    // wallet Wallet
+    // orders Order[]
+    // transactions Order[]
+    // carts Cart[]
+}
