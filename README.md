@@ -9,6 +9,10 @@ $ python -m venv .venv
 $ source .venv/bin/activate  # change bin to Scripts for Windows
 $ python -m pip install -r requirements.txt
 ```
+- Set up the database
+```
+$ prisma db push
+```
 # How to Run
 - Activate the virtual enviorment 
 ```
