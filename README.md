@@ -23,8 +23,8 @@ $ source .venv/bin/activate  # change bin to Scripts for Windows
 $ python main.py
 ```
 
-# Protocol
-A list of endpoints with their expected request/response format.
+# Endpoints
+All the endpoints with their expected request/response format.
 
 **Notes:**
 - All requests will have the following base format:
@@ -57,7 +57,6 @@ To create a new user
     "sendNotifications": boolean // default: true
 }
 ```
-
 **Response**
 ```
 ```
@@ -72,7 +71,6 @@ Logs a user in
     "password": String
 }
 ```
-
 **Response:**
 ```json
 {
@@ -91,10 +89,28 @@ Update user data.
     //Include the keys you want to change
 }
 ```
-
 **Response:**
 ```json
 ```
 
+`user/user` <br>
+Authentication required.
+Gives the user data for currently logged in user.
 
-
+**Request:**
+```json
+{
+    "token": String,
+}
+```
+**Response:**
+```json
+{
+    "email":  String,
+    "phone": String,
+    "firstName": String,
+    "lastName": String,
+    "status": boolean,
+    "sendNotifications": boolean
+}
+```

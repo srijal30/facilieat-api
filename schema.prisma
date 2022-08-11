@@ -9,14 +9,14 @@ generator db {
 }
 
 model User {
+    userId String @id@unique
     email String @unique
+    password String
     phone String // should this be unique too?
     firstName String
     lastName String
-    status Boolean
     sendNotifications Boolean
     
-    // userId String @unique
     // wallet Wallet
     // orders Order[]
     // transactions Order[]
