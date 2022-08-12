@@ -46,6 +46,6 @@ def create_token(userId: str) -> str:
 def validate_token(token: str) -> str | None:
     """Returns userId if valid token, else returns None"""
     try:
-        return decode(token, os.getenv('JWT'), 'HS256')
+        return decode(token, os.getenv('JWT'), 'HS256')['userId']
     except Exception:
         return None

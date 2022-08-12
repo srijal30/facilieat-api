@@ -1,9 +1,9 @@
-from typing import Any, Dict
+from typing import Any, Dict, Union
 from fastapi import APIRouter
 
 from ..database import db
-from ..types.user import UserIn, LogIn
-from ..utils import response, create_token
+from ..types.user import UserIn, LogIn, GetUser, UserOut
+from ..utils import response, create_token, validate_token
 
 
 user_router = APIRouter(prefix="/user")
@@ -59,3 +59,20 @@ async def login_user(login: LogIn) -> Dict[str, Any]:
     )
 
 
+@user_router.post("/user")
+async def get_user(current_user: GetUser) -> Dict[str, Any]:
+    """Returns currently authenticated user."""
+    # validate jwt
+    userId = validate_token(current_user.token)
+    if not userId:
+        return response(False, 'Authentication details invalid!', {})
+    
+    # get the user
+    user = await db.user.find_unique(where={'userId': userId})
+
+    # return the user
+    return response(
+        success=True,
+        message='Operation was successful',
+        data=UserOut(**user.dict())
+    )

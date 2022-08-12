@@ -40,7 +40,14 @@ class UserIn(UserBase):
 
 class UserOut(UserBase):
     """User model that gets sent to the client"""
-    pass
+    email: str
+    phone: str
+    firstName: str
+    lastName: str
+    sendNotifications: bool
+
+    class Config:
+        orm_mode = True
 
 
 class LogIn(BaseModel):
@@ -50,3 +57,7 @@ class LogIn(BaseModel):
     def hash(self):
         """Hash the password"""
         self.password = hash_password(self.password)
+
+
+class GetUser(BaseModel):
+    token: str
