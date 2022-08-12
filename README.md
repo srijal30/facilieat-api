@@ -3,15 +3,22 @@
 ```
 $ git clone https://github.com/srijal30/facilieat-api.git
 ```
-- Set up the virtual enviorment
+- Setup the virtual enviorment
 ```
 $ python -m venv .venv
 $ source .venv/bin/activate  # change bin to Scripts for Windows
 $ python -m pip install -r requirements.txt
 ```
-- Set up the database
+- Setup the database
 ```
 $ prisma db push
+```
+- Set up .env file
+    - create a file names `.env` in root directory
+    - include these variables:
+```
+SALT=#secure string to be used as password salt
+JWT=#secure string to be used as jwt key
 ```
 # How to Run
 - Activate the virtual enviorment 
