@@ -1,6 +1,4 @@
 from typing import Dict, Any
-
-from uuid import uuid4
 from fastapi.testclient import TestClient
 
 from tests.conftest import gen_payload
