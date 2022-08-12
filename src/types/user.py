@@ -7,7 +7,6 @@ from ..utils import hash_password
 
 class UserBase(BaseModel):
     """Base model for users"""
-    userId: str
     email: EmailStr
     phone: str  # do we need this?
     firstName: str
@@ -22,7 +21,7 @@ class UserBase(BaseModel):
 
 
 class UserIn(UserBase):
-    """User creation request model"""
+    """User creation request model. Will be sent to prisma db."""
     userId: str = uuid4().hex
     password: str
 
@@ -40,17 +39,12 @@ class UserIn(UserBase):
 
 class UserOut(UserBase):
     """User model that gets sent to the client"""
-    email: str
-    phone: str
-    firstName: str
-    lastName: str
-    sendNotifications: bool
-
     class Config:
         orm_mode = True
 
 
 class LogIn(BaseModel):
+    """Request model for login request"""
     email: EmailStr
     password: str
 
@@ -59,5 +53,15 @@ class LogIn(BaseModel):
         self.password = hash_password(self.password)
 
 
-class GetUser(BaseModel):
+class GetAuth(BaseModel):
+    """Request model for getting user"""
     token: str
+
+
+class ChangeUser(GetAuth, UserBase):
+    """Request model for changing user"""
+    email: None = None  # my attempt at "deleting"
+    phone: str | None
+    firstName: str | None
+    lastName: str | None
+    sendNotifications: bool | None
