@@ -8,6 +8,9 @@ venv
 .env
 env
 
+# database
+data.sqlite
+
 # Unittest reports
 .coverage*
 
