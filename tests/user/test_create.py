@@ -27,9 +27,8 @@ def test_creation_without_email_param(test_client: TestClient):
     assert res.status_code == 422
 
 
-def test_creation_without_unique_email(test_client: TestClient):
-    test_client.post("/user/create", json=gen_payload('samename'))  # prerequisite
-    res = test_client.post("/user/create", json=gen_payload('samename'))
+def test_creation_without_unique_email(test_client: TestClient, test_user: Dict[str, Any]):
+    res = test_client.post("/user/create", json=test_user)
     assert res.status_code == 200
     json = res.json()
     assert not json['success']

@@ -21,16 +21,9 @@ def test_client() -> TestClient:
         yield client
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture()
 def test_user(test_client: TestClient) -> Dict[str, Any]:
-    create_payload = \
-    {
-        'email': 'ben@dover.com',
-        'phone': '3476538334',
-        'password': 'bendover',
-        'firstName': 'Login',
-        'lastName': 'Test',
-    }
+    create_payload = gen_payload()
     test_client.post("user/create", json=create_payload)
     yield create_payload
 
