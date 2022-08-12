@@ -47,4 +47,4 @@ def test_change_user_info(test_client: TestClient, test_token: str):
     changed_data = test_changes_res.json()['data']
     assert new_first_name == changed_data['firstName']
     assert new_last_name == changed_data['lastName']
-    assert new_send_notifications == changed_data['sendNotifications']
+    assert new_send_notifications == changed_data['sendNotifications']    
