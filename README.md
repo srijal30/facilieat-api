@@ -110,7 +110,6 @@ Gives the user data for currently logged in user.
     "phone": String,
     "firstName": String,
     "lastName": String,
-    "status": boolean,
     "sendNotifications": boolean
 }
 ```
